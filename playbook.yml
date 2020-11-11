@@ -1,0 +1,4 @@
+- name: Configure VM for docker development
+  hosts: all
+  tasks:
+  - ping:
