@@ -1,0 +1,7 @@
+- name: Configure VM for docker development
+  hosts: docker-dev
+
+  roles:
+    - ubuntu_host
+    - ubuntu_host_gui
+    - docker_dev

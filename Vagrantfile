@@ -5,9 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "docker-dev"
 
   config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "playbook.yml"
-    ansible.host_vars = {
-      "docker-dev" => {"ansible_python_interpreter" => "/usr/bin/python3"}
-    }
+    ansible.playbook = "ansible/playbook.yml"
+    ansible.galaxy_role_file = "ansible/requirements.yml"
   end
 end
