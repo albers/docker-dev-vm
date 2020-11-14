@@ -1,2 +1,4 @@
 ---
 # vars file for ubuntu_host
+
+personal_settings_file: personal-settings/vars.yml

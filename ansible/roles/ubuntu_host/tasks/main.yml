@@ -25,3 +25,14 @@
     force_apt_get: yes
     install_recommends: no
   become: yes
+
+- name: Include personal settings file
+  include_vars: "{{ personal_settings_file }}"
+
+- name: Configure git
+  git_config:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    scope: global
+    state: present
+  loop: "{{ git | dict2items }}"

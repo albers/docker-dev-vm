@@ -1,0 +1,7 @@
+# Template for user specific configuration
+# Copy this file to "vars.yml" in the same directory and update the copy
+# to match your identity.
+
+git:
+  user.name: <your full user name>
+  user.email: <your email registerd at github>
