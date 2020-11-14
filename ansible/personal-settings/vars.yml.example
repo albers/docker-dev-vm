@@ -2,6 +2,8 @@
 # Copy this file to "vars.yml" in the same directory and update the copy
 # to match your identity.
 
+# These settings are passed to `git config`.
+# You can add other configuration here.
 git:
   user.name: <your full user name>
   user.email: <your email registerd at github>

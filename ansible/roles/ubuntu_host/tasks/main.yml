@@ -35,4 +35,4 @@
     value: "{{ item.value }}"
     scope: global
     state: present
-  loop: "{{ git | dict2items }}"
+  loop: "{{ git_config | dict2items }}"

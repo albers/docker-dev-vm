@@ -2,3 +2,8 @@
 # vars file for ubuntu_host
 
 personal_settings_file: personal-settings/vars.yml
+
+git_additional_configuration:
+  rebase.autosquash: "true"
+
+git_config: "{{ git | combine(git_additional_configuration) }}"
