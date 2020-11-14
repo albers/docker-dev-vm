@@ -1,0 +1,27 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+#
+# The above will handle all files NOT found below
+#
+# These files are text and should be normalized (Convert crlf => lf)
+*.bat           text
+*.cfg           text
+*.conf          text
+*.yml.example   text
+*.j2            text
+*.md            text
+*.txt           text
+*.xml           text
+*.yaml          text
+*.yml           text
+.gitattributes  text
+.gitignore      text
+Vagrantfile     text
+inventory       text
+
+# Text files that must have Unix line endings
+.bash_aliases   text eol=lf
+
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
