@@ -1,2 +1,8 @@
 ---
 # vars file for ubuntu_host_gui
+
+favorites_to_add:
+  - org.gnome.Nautilus.desktop
+  - org.gnome.Terminal.desktop
+  - intellij-idea-ultimate_intellij-idea-ultimate.desktop
+  - firefox.desktop

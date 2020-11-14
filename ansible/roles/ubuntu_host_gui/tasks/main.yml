@@ -1,2 +1,43 @@
 ---
 # tasks file for ubuntu_host_gui
+
+- name: Install desktop applications
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+    force_apt_get: yes
+    install_recommends: no
+  become: yes
+  vars:
+    packages:
+      - firefox
+
+- name: Install IntelliJ IDE
+  snap:
+    name: intellij-idea-ultimate
+    classic: yes
+    state: present
+  become: yes
+
+- name: Query current favorites
+  shell: "dconf read /org/gnome/shell/favorite-apps"
+  register: favorite_apps
+  changed_when: false
+
+- set_fact:
+    old_favorites: "{{ favorite_apps.stdout_lines[0] | default([]) }}"
+
+- set_fact:
+    new_favorites: "{{ (old_favorites + favorites_to_add) | unique }}"
+
+- name: Update favorites
+  shell: "dconf write /org/gnome/shell/favorite-apps \"['{{ new_favorites | join(\"', '\") }}']\""
+  environment:
+    DISPLAY: ":0"
+  when: new_favorites != old_favorites
+  register: result
+  until: result is not failed
+  retries: 2
+  delay: 10
