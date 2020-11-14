@@ -1,2 +1,27 @@
 ---
 # tasks file for ubuntu_host
+
+- name: Remove unattended upgrades
+  apt:
+    name:
+      - update-notifier
+      - update-notifier-common
+      - unattended-upgrades
+    state: absent
+    purge: yes
+    force_apt_get: yes
+  become: yes
+
+- name: Install basic apt packages
+  apt:
+    name:
+      - git
+      - jq
+      - snapd
+      - vim
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+    force_apt_get: yes
+    install_recommends: no
+  become: yes
