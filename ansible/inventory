@@ -1,0 +1,2 @@
+[vagrant]
+docker-dev ansible_connection=local
