@@ -37,8 +37,9 @@
     state: present
   loop: "{{ git_config | dict2items }}"
 
-- name: Copy per-user hidden configuration files
+- name: Copy per-user hidden configuration files if they do not exist
   copy:
     dest: "{{ ansible_user_dir }}"
     src: "{{ item }}"
+    force: no
   loop: "{{ lookup('fileglob', 'home/.*', wantlist=True) }}"

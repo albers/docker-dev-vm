@@ -11,3 +11,11 @@
   copy:
     src: moby/.bashrc
     dest: ~/go/src/github.com/moby/moby
+
+- name: Add aliases for development of bash completion
+  blockinfile:
+    path: ~/.bash_aliases
+    block: |
+      alias complete-docker='.  ~/go/src/github.com/docker/cli/contrib/completion/bash/docker'
+      alias complete-compose='. ~/go/src/github.com/docker/compose/contrib/completion/bash/docker-compose'
+      alias complete-machine='. ~/go/src/github.com/docker/machine/contrib/completion/bash/docker-machine.bash'
