@@ -1,2 +1,9 @@
 ---
 # vars file for docker_dev
+
+docker_repositories:
+  - moby/moby
+  - docker/cli
+  - docker/compose
+  - docker/machine
+  - docker/docker.github.io.git
