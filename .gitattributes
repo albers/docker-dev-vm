@@ -22,6 +22,7 @@ inventory       text
 
 # Text files that must have Unix line endings
 .bash_aliases   text eol=lf
+.bashrc         text eol=lf
 
 # These files are binary and should be left untouched
 # (binary is a macro for -text -diff)
