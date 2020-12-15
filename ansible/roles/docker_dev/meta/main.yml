@@ -1,3 +1,4 @@
 dependencies:
+  - role: gantsign.golang
   - role: geerlingguy.docker
     become: yes

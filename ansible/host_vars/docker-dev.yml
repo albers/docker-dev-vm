@@ -3,3 +3,5 @@ apt_cache_valid_time: 3600
 
 docker_users:
   - vagrant
+
+golang_version: '1.13.15'
