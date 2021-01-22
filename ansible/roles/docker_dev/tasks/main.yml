@@ -1,6 +1,32 @@
 ---
 # tasks file for docker_dev
 
+- name: Set python2 as low-priority alternative
+  alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python2
+    priority: 1
+  become: yes
+
+- name: Set python3 as default
+  alternatives:
+    name: python
+    link: /usr/bin/python
+    path: /usr/bin/python3
+    priority: 2
+  become: yes
+
+- name: Install required python packages for docker-compose
+  apt:
+    name: python3-setuptools
+    state: present
+    update_cache: yes
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+    force_apt_get: yes
+    install_recommends: no
+  become: yes
+
 - name: Clone git repositories
   git:
     repo: https://github.com/{{ item }}
