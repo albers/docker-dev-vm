@@ -8,3 +8,9 @@ docker_repositories:
   - docker/compose
   - docker/machine
   - docker/docker.github.io.git
+
+docker_users:
+  - vagrant
+
+docker_install_compose: false
+golang_version: '1.16.12'
