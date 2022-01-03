@@ -37,6 +37,14 @@
     state: present
   loop: "{{ git_config | dict2items }}"
 
+- name: Set vim as the default editor
+  blockinfile:
+    path: ~/.bashrc
+    block: |
+      export VISUAL=vim
+      export EDITOR="$VISUAL"
+    state: present
+
 - name: Copy per-user hidden configuration files if they do not exist
   copy:
     dest: "{{ ansible_user_dir }}"
