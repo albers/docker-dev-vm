@@ -1,7 +1,7 @@
 # vi: set ft=ruby :
 Vagrant.configure("2") do |config|
   config.vm.box = "fasmat/ubuntu2004-desktop"
-  config.vm.box_version = "21.0828.1"
+  config.vm.box_version = "22.0306.1"
   config.vm.define "docker-dev"
   config.vm.hostname = "docker-dev"
 
