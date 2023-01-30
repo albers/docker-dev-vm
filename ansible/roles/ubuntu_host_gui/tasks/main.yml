@@ -21,6 +21,23 @@
     state: present
   become: yes
 
+- name: Find IntelliJ JVM config files
+  find:
+    paths:
+      - ~/.config/JetBrains/
+    recurse: yes
+    file_type: file
+    use_regex: yes
+    patterns: ['.*idea64\.vmoptions$']
+  register: config_files
+
+- name: Configure IntelliJ JVM options
+  lineinfile:
+    path: "{{ item }}"
+    line: "-Dsun.java2d.xrender=false"
+    state: present
+  loop: "{{ config_files.files | map(attribute='path') }}"
+
 - name: Query current favorites
   shell: "dconf read /org/gnome/shell/favorite-apps"
   register: favorite_apps
