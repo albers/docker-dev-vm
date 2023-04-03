@@ -21,22 +21,28 @@
     state: present
   become: yes
 
-- name: Find IntelliJ JVM config files
-  find:
-    paths:
-      - ~/.config/JetBrains/
-    recurse: yes
-    file_type: file
-    use_regex: yes
-    patterns: ['.*idea64\.vmoptions$']
-  register: config_files
+- name: Query IntelliJ version
+  shell:
+    cmd: >
+      intellij-idea-ultimate --version | awk '/IDEA/{print $3}'
+  changed_when: no
+  register: version_output
+
+- name: Get IntelliJ config dir
+  set_fact:
+    intellij_config_dir: ~/.config/JetBrains/IntelliJIdea{{ version_output.stdout }}/
+
+- name: Ensure IntelliJ config dir exists
+  file:
+    path: "{{ intellij_config_dir }}"
+    state: directory
 
 - name: Configure IntelliJ JVM options
   lineinfile:
-    path: "{{ item }}"
+    path: "{{ intellij_config_dir }}/idea64.vmoptions"
     line: "-Dsun.java2d.xrender=false"
+    create: true
     state: present
-  loop: "{{ config_files.files | map(attribute='path') }}"
 
 - name: Query current favorites
   shell: "dconf read /org/gnome/shell/favorite-apps"
