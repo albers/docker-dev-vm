@@ -4,10 +4,8 @@
 docker_repositories:
   - moby/moby
   - docker/cli
-  - docker/compose-cli
   - docker/compose
-  - docker/machine
-  - docker/docker.github.io.git
+  - docker/docs
 
 docker_users:
   - vagrant

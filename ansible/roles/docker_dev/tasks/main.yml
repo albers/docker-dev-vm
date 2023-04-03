@@ -1,16 +1,6 @@
 ---
 # tasks file for docker_dev
 
-- name: Install required python packages for docker-compose
-  apt:
-    name: python3-setuptools
-    state: present
-    update_cache: yes
-    cache_valid_time: "{{ apt_cache_valid_time }}"
-    force_apt_get: yes
-    install_recommends: no
-  become: yes
-
 - name: Clone git repositories
   git:
     repo: https://github.com/{{ item }}
@@ -26,6 +16,4 @@
   blockinfile:
     path: ~/.bash_aliases
     block: |
-      alias complete-docker='.  ~/go/src/github.com/docker/cli/contrib/completion/bash/docker'
-      alias complete-compose='. ~/go/src/github.com/docker/compose/contrib/completion/bash/docker-compose'
-      alias complete-machine='. ~/go/src/github.com/docker/machine/contrib/completion/bash/docker-machine.bash'
+      alias complete-docker='. ~/go/src/github.com/docker/cli/contrib/completion/bash/docker'
