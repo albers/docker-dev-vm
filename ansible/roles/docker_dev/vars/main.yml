@@ -11,4 +11,4 @@ docker_users:
   - vagrant
 
 docker_install_compose: false
-golang_version: '1.19.1'
+golang_version: '1.19.7'
