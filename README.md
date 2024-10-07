@@ -5,7 +5,7 @@ A Ubuntu based virtual machine suitable for my personal Docker development habit
 Use at your own risk.
 
 ## Prerequisites
-- 
+
 - [Oracle Virtual Box](https://www.virtualbox.org/wiki/Downloads)
 - [Vagrant](https://developer.hashicorp.com/vagrant/downloads?product_intent=vagrant)
 
@@ -13,7 +13,7 @@ I've been using this on Windows 10 and 11.
  
 ## Build
 
-1. Configure your github identity, see [here](ansible/personal-settings/vars.yml.example).
+1. Configure your GitHub identity, see [here](ansible/personal-settings/vars.yml.example).
 2. Build the virtual machine with:
    ```shell
    vagrant up
