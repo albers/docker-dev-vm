@@ -21,28 +21,13 @@
     state: present
   become: yes
 
-- name: Query IntelliJ version
-  shell:
-    cmd: >
-      intellij-idea-ultimate --version | awk '/IDEA/{print $3}'
-  changed_when: no
-  register: version_output
-
-- name: Get IntelliJ config dir
-  set_fact:
-    intellij_config_dir: ~/.config/JetBrains/IntelliJIdea{{ version_output.stdout }}/
-
-- name: Ensure IntelliJ config dir exists
-  file:
-    path: "{{ intellij_config_dir }}"
-    state: directory
-
-- name: Configure IntelliJ JVM options
+- name: Fix IntelliJ display problems
+  # see https://youtrack.jetbrains.com/issue/JBR-4507/After-upgrading-Ubuntu-to-22.04-LTS-some-GUI-elements-are-not-displayed
   lineinfile:
-    path: "{{ intellij_config_dir }}/idea64.vmoptions"
-    line: "-Dsun.java2d.xrender=false"
-    create: true
+    path: /etc/environment
+    line: "XWAYLAND_NO_GLAMOR=1"
     state: present
+  become: yes
 
 - name: Query current favorites
   shell: "dconf read /org/gnome/shell/favorite-apps"
