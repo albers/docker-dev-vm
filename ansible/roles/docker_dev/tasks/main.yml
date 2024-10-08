@@ -7,10 +7,10 @@
     dest: ~/go/src/github.com/{{ item }}
   loop: "{{ docker_repositories }}"
 
-- name: Add a custom .bashrc to the moby repository
+- name: Add a custom .bashrc to the docker repository
   copy:
-    src: moby/.bashrc
-    dest: ~/go/src/github.com/moby/moby
+    src: docker/.bashrc
+    dest: ~/go/src/github.com/docker/docker
 
 - name: Add aliases for development of bash completion
   blockinfile:

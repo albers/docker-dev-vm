@@ -2,7 +2,7 @@
 # vars file for docker_dev
 
 docker_repositories:
-  - moby/moby
+  - docker/docker
   - docker/cli
   - docker/compose
   - docker/docs
