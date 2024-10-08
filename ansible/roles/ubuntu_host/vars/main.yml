@@ -3,6 +3,13 @@
 
 personal_settings_file: personal-settings/vars.yml
 
+basic_packages:
+  - git
+  - jq
+  - snapd
+  - vim
+
+
 git_additional_configuration:
   rebase.autosquash: "true"
   core.excludesfile: ~/.gitignore_global

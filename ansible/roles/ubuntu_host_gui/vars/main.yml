@@ -1,6 +1,9 @@
 ---
 # vars file for ubuntu_host_gui
 
+desktop_packages:
+  - firefox
+
 favorites_to_add:
   - org.gnome.Nautilus.desktop
   - org.gnome.Terminal.desktop
