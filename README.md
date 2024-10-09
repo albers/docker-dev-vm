@@ -26,3 +26,4 @@ I've been using this on Windows 10 and 11.
 - This project directory is monunted at `~vagrant/docker-dev-vm`.
 - Several Docker related repositories are checked out at `~vagrant/go/src/github.com/`.
 - The [IntelliJ IDE](https://www.jetbrains.com/idea/) is installed.
+  See [IDE setup for Docker development](https://github.com/moby/moby/blob/master/docs/contributing/set-up-ide.md) for configuration.
