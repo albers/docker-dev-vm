@@ -1,0 +1,5 @@
+---
+# vars file for cobra_dev
+
+cobra_repositories:
+  - spf13/cobra

@@ -1,3 +1,3 @@
 # docker_dev
 
-Use case specific configuration.
+Development of Docker CLI and its completion as well as Docker Engine (Moby).

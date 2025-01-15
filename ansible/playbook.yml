@@ -1,7 +1,18 @@
-- name: Configure VM for docker development
+- name: Create Host
   hosts: docker-dev
-
+  tags: host
   roles:
     - ubuntu_host
     - ubuntu_host_gui
+
+- name: Configure Host for Docker development
+  hosts: docker-dev
+  tags: docker
+  roles:
     - docker_dev
+
+- name: Configure Host for Cobra development
+  hosts: docker-dev
+  tags: cobra
+  roles:
+    - cobra_dev
