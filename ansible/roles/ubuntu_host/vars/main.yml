@@ -9,6 +9,10 @@ basic_packages:
   - snapd
   - vim
 
+docker_users:
+  - vagrant
+
+docker_install_compose: false
 
 git_additional_configuration:
   rebase.autosquash: "true"
