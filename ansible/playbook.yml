@@ -5,6 +5,12 @@
     - ubuntu_host
     - ubuntu_host_gui
 
+- name: Configure Host for Learning Go
+  hosts: docker-dev
+  tags: go
+  roles:
+    - go
+
 - name: Configure Host for Docker development
   hosts: docker-dev
   tags: docker
